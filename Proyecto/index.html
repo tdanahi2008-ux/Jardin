@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jardin Botanico</title>
+    <link rel="stylesheet" href="./proyectofinal.css">
+</head>
+<style>
+    button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #5bb672;
+        }
+</style>
+<body>
+     <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+       
+            <img  class="bd-placeholder-img" width="100%" height="100%" src="./Imagen10.jpg" alt="">
+       
+            <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Jardín Botánico</h1>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+
+        <img  class="bd-placeholder-img" width="100%" height="100%" src="./Imagen12.jpg" alt="">
+
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Coordenadas</h1>
+            <p>Permiten localizar y estudiar las plantas con precisión.</p>
+            
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img  class="bd-placeholder-img" width="100%" height="100%" src="./WhatsApp Image 2026-05-27 at 10.25.23 PM.jpeg" alt="">
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Stenocereus</h1>
+            <p>Un género de cactus columnares comúnmente conocidos como órganos o pitayos</p>
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+
+   <div class="row">
+      <div class="col-lg-4">
+      
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="./Imagen4.jpg" alt="">
+
+        <h2>Cacalosuchil</h2>
+        <p id="parrafo-a-leer" class="texto-lectura">Es conocida por sus llamativas flores y su capacidad para almacenar agua en su tronco.</p>
+        <button id="btn-escuchar">Escuchar párrafo</button>
+
+<script>
+    const btnEscuchar = document.getElementById('btn-escuchar');
+    
+    // Capturamos el párrafo por su ID
+    const parrafo = document.getElementById('parrafo-a-leer');
+
+    if ('speechSynthesis' in window) {
+        
+        btnEscuchar.addEventListener('click', () => {
+            // Cancelar cualquier reproducción previa activa
+            window.speechSynthesis.cancel();
+
+            // Extraemos el texto limpio del párrafo usando textContent
+            const textoLimpio = parrafo.textContent.trim();
+
+            if (textoLimpio) {
+                const utterance = new SpeechSynthesisUtterance(textoLimpio);
+                utterance.lang = 'es-ES'; // Idioma configurado en español
+                
+                // Reproducir
+                window.speechSynthesis.speak(utterance);
+            }
+        });
+
+    } else {
+        alert("Tu navegador no soporta la reproducción de voz.");
+    }
+</script>
+
+
+
+
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="./Imagen3.jpg" alt="">
+
+        <h2>Bugambilia Blanca</h2>
+        <p id="parrafo-a-leer2">Es una planta o arbusto leñoso popular por su valor ornamental y abundancia de flores.</p>
+      <button id="btn-escuchar2">Escuchar párrafo</button>
+
+<script>
+    const btnEscuchar2 = document.getElementById('btn-escuchar2');
+    
+    // Capturamos el párrafo por su ID
+    const parrafo2 = document.getElementById('parrafo-a-leer2');
+
+    if ('speechSynthesis' in window) {
+        
+        btnEscuchar2.addEventListener('click', () => {
+            // Cancelar cualquier reproducción previa activa
+            window.speechSynthesis.cancel();
+
+            // Extraemos el texto limpio del párrafo usando textContent
+            const textoLimpio2 = parrafo2.textContent.trim();
+
+            if (textoLimpio2) {
+                const utterance2 = new SpeechSynthesisUtterance(textoLimpio2);
+                utterance2.lang = 'es-ES'; // Idioma configurado en español
+                
+                // Reproducir
+                window.speechSynthesis.speak(utterance2);
+            }
+        });
+
+    } else {
+        alert("Tu navegador no soporta la reproducción de voz.");
+    }
+</script>
+      
+      </div><!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+      
+        <img class="bd-placeholder-img rounded-circle" width="140" height="140" src="./Imagen5.jpg" alt="">
+
+        <h2>Adelfa</h2>
+        <p id="parrafo-a-leer3">Un arbusto ornamental muy popular por sus vistosas flores blancas.</p>
+         <button id="btn-escuchar3">Escuchar párrafo</button>
+
+<script>
+    const btnEscuchar3 = document.getElementById('btn-escuchar3');
+    
+    // Capturamos el párrafo por su ID
+    const parrafo3 = document.getElementById('parrafo-a-leer3');
+
+    if ('speechSynthesis' in window) {
+        
+        btnEscuchar3.addEventListener('click', () => {
+            // Cancelar cualquier reproducción previa activa
+            window.speechSynthesis.cancel();
+
+            // Extraemos el texto limpio del párrafo usando textContent
+            const textoLimpio3 = parrafo3.textContent.trim();
+
+            if (textoLimpio3) {
+                const utterance3 = new SpeechSynthesisUtterance(textoLimpio3);
+                utterance3.lang = 'es-ES'; // Idioma configurado en español
+                
+                // Reproducir
+                window.speechSynthesis.speak(utterance3);
+            }
+        });
+
+    } else {
+        alert("Tu navegador no soporta la reproducción de voz.");
+    }
+</script>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+
+
+
+    <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen6.jpg" alt="">
+            <div class="card-body">
+              <p class="card-text">Esta es una Yucca filifera, una especie de planta arborescente nativa de México, frecuentemente conocida como palma pita o izote.Es una planta imponente que puede alcanzar hasta 10 metros de altura, desarrollando un tronco grueso y a menudo múltiple.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen8.jpg" alt="">
+
+            <div class="card-body">
+              <p class="card-text">Esta especie es una planta suculenta y xerófita, perteneciente a la familia de las cactáceas, que se caracteriza por sus tallos planos y carnosos llamados cladodios o pencas.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen11.jpg" alt="">
+
+            <div class="card-body">
+              <p class="card-text">Este es un nopal de la especie Opuntia caboensis, una planta nativa de la península de Baja California.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                 
+                </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen2.jpg" alt="">
+
+            <div class="card-body">
+              <p class="card-text">El árbol en la imagen es un Torote Rojo (Bursera microphylla), una especie nativa de los desiertos del noroeste de México y el suroeste de Estados Unidos.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  
+                </div>
+                
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+             <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen13.jpg" alt="">
+
+            <div class="card-body">
+              <p class="card-text">Esta es una Biznaga de Barril, comúnmente del género Ferocactus, que presenta frutos amarillos comestibles característicos.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                 
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <img class="bd-placeholder-img card-img-top" width="100%" height="225" src="./Imagen7.jpg" alt="">
+            <div class="card-body">
+              <p class="card-text">Esta planta es comúnmente conocida como nopal viejito (Opuntia senilis).Apariencia: Se caracteriza por tener tallos cubiertos de largos pelos blancos que parecen una barba o cabellera.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+<!--
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col">
+          <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+
+            <div class="card-body">
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                </div>
+                <small class="text-muted">9 mins</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        -->
+      </div>
+    </div>
+  </div>
+
+
+</body>
+</html>

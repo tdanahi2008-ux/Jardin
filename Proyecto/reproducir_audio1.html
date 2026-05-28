@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reproducir Párrafo Estático</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 40px;
+            background-color: #f9f9f9;
+        }
+        .text-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin-bottom: 20px;
+        }
+        .texto-lectura {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="text-container">
+        <p id="parrafo-a-leer" class="texto-lectura">
+            Bienvenidos a nuestra plataforma. La accesibilidad web es fundamental para asegurar 
+            que todas las personas, independientemente de sus capacidades, puedan acceder a la 
+            información y navegar interactuando con el contenido de manera efectiva.
+        </p>
+    </div>
+
+    <button id="btn-escuchar">Escuchar párrafo</button>
+
+<script>
+    const btnEscuchar = document.getElementById('btn-escuchar');
+    
+    // Capturamos el párrafo por su ID
+    const parrafo = document.getElementById('parrafo-a-leer');
+
+    if ('speechSynthesis' in window) {
+        
+        btnEscuchar.addEventListener('click', () => {
+            // Cancelar cualquier reproducción previa activa
+            window.speechSynthesis.cancel();
+
+            // Extraemos el texto limpio del párrafo usando textContent
+            const textoLimpio = parrafo.textContent.trim();
+
+            if (textoLimpio) {
+                const utterance = new SpeechSynthesisUtterance(textoLimpio);
+                utterance.lang = 'es-ES'; // Idioma configurado en español
+                
+                // Reproducir
+                window.speechSynthesis.speak(utterance);
+            }
+        });
+
+    } else {
+        alert("Tu navegador no soporta la reproducción de voz.");
+    }
+</script>
+
+</body>
+</html>
